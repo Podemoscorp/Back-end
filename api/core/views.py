@@ -1,13 +1,24 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .models import Usuario
 from .models import Aluno
 from .models import Noticias
 from .models import Cursos
 from .models import Extras
+from .models import Certificados
+from .serialize import UsuarioSerialize
 from .serialize import AlunoSerialize
 from .serialize import NoticiasSerialize
 from .serialize import CursosSerialize
 from .serialize import ExtraSerialize
+from .serialize import CertificadoSerialize
+import requests
+
+
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerialize
 
 class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
@@ -24,6 +35,13 @@ class CursoView(viewsets.ModelViewSet):
 class ExtraView(viewsets.ModelViewSet):
     queryset=Extras.objects.all()
     serializer_class=ExtraSerialize
+
+class CertificadoView(viewsets.ModelViewSet):
+    queryset=Certificados.objects.all()
+    serializer_class=CertificadoSerialize
+
+
+
 
 
 
