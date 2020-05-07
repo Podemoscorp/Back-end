@@ -1,0 +1,235 @@
+/*alinhando pagina para nao ter margin */
+body,html{
+  margin: 0;
+  width: 100%;
+  background-image: url("image/fundo.jpg");
+  background-repeat: repeat;
+  background-size: contain;
+  background-size: 400px;
+}
+
+
+/*coisas do cabeçario*/
+/*menu*/
+/*.pre{
+  transition: 2s;
+  height: 100vw;
+  width: 100vw;
+  background-color: #353535;
+  position: sticky;
+  z-index: 10px;
+  display: none;
+}*/
+.menu{
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top:15px;
+  cursor:pointer;
+  transition: 2s;
+   position: sticky;
+  /* border: 1px solid white; */
+  /* border-radius: 50%; */
+}
+
+/* sumindo com checkbox do menu */
+    
+/* animando menu (Bars) */
+#menu-hambuguer{
+  display:none;
+}
+#menu-hambuguer:checked ~ #hm .hambuguer{
+  transform: rotate(45deg);
+
+}
+#menu-hambuguer:checked ~ #hm .hambuguer:after{
+  transform: rotate(90deg);
+  bottom: 0px;
+}
+#menu-hambuguer:checked ~ #hm .hambuguer:before{
+  transform: rotate(-90deg);
+  bottom: 0px;
+}
+
+
+/*#menu-hambuguer:checked ~ label .pre{
+  box-shadow: 0 0 0 100vw #404545 , 0 0 0 100vw #404545 ;
+  opacity: .6;
+
+}*/
+/* Bars */
+.hambuguer:after {
+  background: white;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: relative;
+  bottom:  17px;
+  transition: 1s;
+  display: block;
+}
+.hambuguer{
+  width: 35px;
+  height: 3px;
+  background: white;
+  position: relative;
+  top: 20px;
+  transition: 2s;
+  display: block;
+}
+
+.hambuguer:before {
+  background: white;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: relative;
+  bottom: -15px;
+  transition: 1s;
+  display: block;
+}
+
+/*cadastro*/
+#cadastro{
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+.cadastro{
+  text-decoration: none;
+  color:white;
+  font-size:30px;
+  float: right;
+  border: 1px solid;
+  border-radius: 8px;
+  width:128px ;
+  height:40px ;
+  margin-top: 16px;
+  margin-right: 5px;
+  background: #ff6312;
+  border: 0px;
+ 
+}
+.cadastro:hover{
+  background: white;
+  color: #ff6312;
+
+}
+/*login*/
+.login{
+  text-decoration: none;
+  color:white;
+  position: r;
+  font-size:30px;
+  margin-top: 17px;
+  float: right;
+  margin-right: 5px;
+}
+.login:hover{
+    color: #ff6312;
+}
+/*lupa*/
+.icone.lupa {
+  width: 20px;
+  height: 20px;
+  border: 4px solid white;
+  border-radius: 50%;
+  position: relative;
+  float: right;
+  margin-top: 15px;
+  margin-right:40px;
+}
+.icone.lupa:after {
+  position: absolute;
+  width: 22px;
+  height: 4px;
+  background-color: #fff;
+  display: block;
+  content: "";
+  top: 0%;
+  left: 0%;
+  transform: rotate(45deg);
+  transform-origin: -10px 30px;
+  float: right;
+
+
+}
+.cabeçario{
+  float: left;
+}
+/*retira underline dos link <a>*/
+a:link {
+  text-decoration: none;
+}
+a.nounderline:link{
+text-decoration:none;
+}
+
+/*pequeno*/
+@media only screen and (min-width: 0px){
+    /*logo podemos */
+  .podemoslogobranca {
+  	background-image: url("image/Logo_podemos_brancomenor.png");
+    background-repeat: no-repeat;
+    width: 741px;
+    height: 299px;
+    margin-left: 20%;
+    margin-right: 0%;
+    position: sticky;
+
+
+  	}
+
+}
+/*medio*/
+@media only screen and (min-width: 680px){
+  /*logo podemos */
+  .podemoslogobranca {
+  	background-image: url("image/Logo_podemos_brancomenor.png");
+    background-repeat: no-repeat;
+    width: 128px;
+    height: 52px;
+    margin-left: 40%;
+    margin-right: 40%;
+    float: left;
+    margin-top: -45px;
+    position: sticky;
+    
+
+
+  	}
+
+}
+/*grande*/
+@media only screen and (min-width: 1000px){
+
+
+}
+
+/*cabeçario*/
+.cabeçario{
+  height: 70px;
+  width: 100%;
+  background: #303434;
+  top: 0px;
+  position: sticky;
+
+
+}
+/*rodapé*/
+
+.rodape {
+  min-height: 100%;
+}
+
+.rodapé {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+.rodap3{
+  height: 50px;
+  margin-top: 80%;
+  background: #303434
+}
