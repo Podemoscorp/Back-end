@@ -1,8 +1,10 @@
 from django.db import models
-from datetime import datetime
-
+from datetime import datetime 
+from  utils.config import tempero
+import jwt
+ 
 class Usuario(models.Model):
-    nome = models.CharField(max_length=50)
+    nome = models.CharField(db_index=True, max_length=50,unique=True)
     endereço = models.CharField(max_length=50)
     idade = models.IntegerField()
     email = models.CharField(max_length=50, unique=True)
@@ -14,6 +16,28 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    @property
+    def token(self):
+
+
+        return self._generate_jwt_token()
+    
+    def get_short_name(self):
+
+        return self.nome
+
+    def _generate_jwt_token(self):
+        payload={"nome":self.nome,"senha":self.password}
+        key = tempero
+        algoritmo='HS256'
+
+        encoded =jwt.encode(payload,key,algoritmo)
+
+        return encoded
+    
+    
+
 
 class Aluno(models.Model):
     nome = models.CharField(max_length=50)
@@ -27,6 +51,10 @@ class Aluno(models.Model):
 
     def __str__(self):
         return self.nome
+    
+
+
+        
 
 class Noticias(models.Model):
     titulo = models.CharField(max_length=200)

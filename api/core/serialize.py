@@ -20,13 +20,7 @@ class UsuarioSerialize(serializers.ModelSerializer):
         model =Usuario
         fields =('id','nome','endereço','idade','email','password','username','cpf','perfil','datetime')
         
-        def create(self,validate_data):
-            password=validate_data.pop('password', None)
-            instance =self.Meta.model(**validate_data)
-            if password is not None:
-                instance.set_password(password)
-            instance.save()
-            return instance
+       
 
 class AlunoSerialize(serializers.ModelSerializer):
     class Meta:
