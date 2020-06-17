@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +50,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  
+    'django.middleware.common.CommonMiddleware',  
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
 
 ROOT_URLCONF = 'api.urls'
 
@@ -122,7 +129,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK={
-    #'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -130,6 +137,8 @@ REST_FRAMEWORK={
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
-    'NON_FIELDS_ERRORS_KEY':'global'
+    'NON_FIELDS_ERRORS_KEY':'global',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
 
